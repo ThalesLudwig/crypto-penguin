@@ -1,0 +1,47 @@
+[
+  {
+    "inputs": [
+      { "internalType": "address", "name": "tokenContract", "type": "address" },
+      { "internalType": "string", "name": "tokenId", "type": "string" },
+      { "internalType": "string", "name": "title", "type": "string" },
+      { "internalType": "string", "name": "imageUrl", "type": "string" },
+      { "internalType": "string", "name": "collectionName", "type": "string" },
+      { "internalType": "string", "name": "network", "type": "string" }
+    ],
+    "name": "addToCollection",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getCollectibles",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "address", "name": "tokenContract", "type": "address" },
+          { "internalType": "string", "name": "tokenId", "type": "string" },
+          { "internalType": "string", "name": "title", "type": "string" },
+          { "internalType": "string", "name": "imageUrl", "type": "string" },
+          { "internalType": "string", "name": "collectionName", "type": "string" },
+          { "internalType": "string", "name": "network", "type": "string" }
+        ],
+        "internalType": "struct CryptoPenguin.Collectible[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "tokenContract", "type": "address" },
+      { "internalType": "string", "name": "tokenId", "type": "string" }
+    ],
+    "name": "removeFromCollection",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
