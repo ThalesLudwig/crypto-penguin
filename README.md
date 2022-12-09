@@ -17,4 +17,4 @@ yarn dev
 
 Then, open [http://localhost:3000](http://localhost:3000).
 <br/>
-The Metamask browser extension is recommended.
+The Metamask browser extension is required.
