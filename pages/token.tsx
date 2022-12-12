@@ -147,6 +147,7 @@ export default function Token({ alchemy: mumbaiProvider }) {
             <Title>{nft.title}</Title>
             <Collapsable isOpen title="Description">
               <Text>{nft.description}</Text>
+              {!nft.description && <Text>No description to display.</Text>}
             </Collapsable>
             <Collapsable title="Contract">
               <Column>
@@ -176,6 +177,7 @@ export default function Token({ alchemy: mumbaiProvider }) {
                     <Text>{attr?.value}</Text>
                   </InformationWrapper>
                 ))}
+                {nft.rawMetadata?.attributes?.length == 0 && <Text>No attributes to display.</Text>}
               </Column>
             </Collapsable>
           </Column>

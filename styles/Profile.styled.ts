@@ -10,6 +10,7 @@ export const Container = styled.main`
   flex-direction: column;
   background-color: ${({ theme }: { theme: ThemeType }) => theme.BACKGROUND};
   padding: 15px;
+  padding-bottom: 70px;
 
   @media only screen and (max-width: ${SCREEN.MOBILE}) {
     min-height: 60vh;

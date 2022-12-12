@@ -32,6 +32,15 @@ export default function Profile({ alchemy: mumbaiProvider }) {
   const [selectedTab, setSelectedTab] = useState(0);
   const [network, setNetwork] = useState<Network>(Network.ETH_MAINNET);
 
+  const connectWallet = async () => {
+    if (!(window as any).ethereum) {
+      alert("Please install Metamask");
+      return;
+    }
+    const provider = new ethers.providers.Web3Provider((window as any).ethereum);
+    await provider.send("eth_requestAccounts", []);
+  };
+
   const fetchAlbum = useCallback(async () => {
     setIsLoading(true);
     const provider = await mumbaiProvider.config.getProvider();
@@ -65,10 +74,12 @@ export default function Profile({ alchemy: mumbaiProvider }) {
   }, [network, account]);
 
   useEffect(() => {
+    connectWallet();
     fetchAlbum();
   }, [fetchAlbum]);
 
   useEffect(() => {
+    connectWallet();
     fetchOwned();
   }, [network, fetchOwned]);
 

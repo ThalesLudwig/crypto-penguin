@@ -38,8 +38,10 @@ function Header() {
 
   const removeWallet = async () => {
     const hasConfirmed = confirm("Do you wish to disconnect?");
-    if (hasConfirmed) dispatch(clearAccount());
-    push({ pathname: "/" });
+    if (hasConfirmed) {
+      dispatch(clearAccount());
+      push({ pathname: "/" });
+    }
   };
 
   return (
