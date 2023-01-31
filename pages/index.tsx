@@ -16,7 +16,7 @@ export default function Home() {
       network: Network.ETH_MAINNET,
     };
     const alchemy = new Alchemy(config);
-    const response = await alchemy.nft.getNftsForContract(ADDRESSES.OPENSEA, { pageSize: 15 });
+    const response = await alchemy.nft.getNftsForContract(ADDRESSES.OPENSEA, { pageSize: 35 });
     setNFTs(response.nfts);
     setIsLoading(false);
   };
@@ -35,16 +35,18 @@ export default function Home() {
       </HeroWrapper>
       <Featured isLoading={isLoading}>
         {!!isLoading && <Loading isLoading={isLoading} />}
-        {nfts.map((nft) => (
-          <Card
-            key={nft.tokenId}
-            id={nft.tokenId}
-            title={nft.title}
-            imageUrl={nft.media[0].gateway}
-            contractName={nft.contract.name}
-            address={nft.contract.address}
-          />
-        ))}
+        {nfts
+          .filter((nft) => !!nft.media[0])
+          .map((nft) => (
+            <Card
+              key={nft.tokenId}
+              id={nft.tokenId}
+              title={nft.title}
+              imageUrl={nft.media[0]?.gateway}
+              contractName={nft.contract.name}
+              address={nft.contract.address}
+            />
+          ))}
       </Featured>
     </Hero>
   );
