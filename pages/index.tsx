@@ -5,7 +5,7 @@ import { Network, Alchemy, Nft } from "alchemy-sdk";
 import { ADDRESSES } from "../constants/addresses";
 import { useEffect, useState } from "react";
 import Loading from "../components/Loading/Loading";
-
+//
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [nfts, setNFTs] = useState<Nft[]>([]);
